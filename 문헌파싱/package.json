@@ -1,0 +1,11 @@
+{
+  "name": "literature-pdf-parser",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "parse": "node parse.mjs"
+  },
+  "dependencies": {
+    "kordoc": "4.19.0"
+  }
+}

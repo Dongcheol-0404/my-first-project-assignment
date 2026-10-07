@@ -1,0 +1,7 @@
+allowBuilds:
+  onnxruntime-node: true
+  protobufjs: true
+minimumReleaseAgeExclude:
+  - kordoc@4.19.0
+patchedDependencies:
+  kordoc@4.19.0: patches/kordoc@4.19.0.patch

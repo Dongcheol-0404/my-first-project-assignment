@@ -1,0 +1,54 @@
+diff --git a/dist/chunk-7TVRQJXI.cjs b/dist/chunk-7TVRQJXI.cjs
+index 1ed1d9a6f14b7b75a92e09edd7447b6b0efdca73..a9dbb8879efffd09c8316a44f8e182f97aa9f857 100644
+--- a/dist/chunk-7TVRQJXI.cjs
++++ b/dist/chunk-7TVRQJXI.cjs
+@@ -1415,9 +1415,12 @@ var OcrEngine = class _OcrEngine {
+     const sharpAny = sharpModRaw;
+     const sharpMod = typeof sharpAny === "function" ? sharpAny : _nullishCoalesce(sharpAny.default, () => ( sharpAny));
+     const dir = _chunkYV4PWWRWcjs.getOcrModelsDir.call(void 0, );
++    const useDirectML = process.platform === "win32" && process.env.KORDOC_OCR_PROVIDER !== "cpu";
+     const sessionOpts = {
+       graphOptimizationLevel: "all",
+-      executionProviders: ["cpu"],
++      executionProviders: [useDirectML ? "dml" : "cpu"],
++      enableMemPattern: !useDirectML,
++      executionMode: "sequential",
+       logSeverityLevel: 3
+       // paddle2onnx 변환 잔여물 W 로그 폭주 억제
+     };
+diff --git a/dist/chunk-DEYCTP2S.js b/dist/chunk-DEYCTP2S.js
+index 925aeab90b4d6d4861ce7442fda7f82fc23ed690..a0b4b865ec6cf0fe01c8c97e591a32df646203db 100644
+--- a/dist/chunk-DEYCTP2S.js
++++ b/dist/chunk-DEYCTP2S.js
+@@ -1415,9 +1415,12 @@ var OcrEngine = class _OcrEngine {
+     const sharpAny = sharpModRaw;
+     const sharpMod = typeof sharpAny === "function" ? sharpAny : sharpAny.default ?? sharpAny;
+     const dir = getOcrModelsDir();
++    const useDirectML = process.platform === "win32" && process.env.KORDOC_OCR_PROVIDER !== "cpu";
+     const sessionOpts = {
+       graphOptimizationLevel: "all",
+-      executionProviders: ["cpu"],
++      executionProviders: [useDirectML ? "dml" : "cpu"],
++      enableMemPattern: !useDirectML,
++      executionMode: "sequential",
+       logSeverityLevel: 3
+       // paddle2onnx 변환 잔여물 W 로그 폭주 억제
+     };
+diff --git a/dist/chunk-HFMIAMEO.js b/dist/chunk-HFMIAMEO.js
+index 14826b111c49325173a89c31fd19c8db31000752..f55a22d7e01e1492980c2b26b925ccaecee3a707 100644
+--- a/dist/chunk-HFMIAMEO.js
++++ b/dist/chunk-HFMIAMEO.js
+@@ -1418,9 +1418,12 @@ var OcrEngine = class _OcrEngine {
+     const sharpAny = sharpModRaw;
+     const sharpMod = typeof sharpAny === "function" ? sharpAny : sharpAny.default ?? sharpAny;
+     const dir = getOcrModelsDir();
++    const useDirectML = process.platform === "win32" && process.env.KORDOC_OCR_PROVIDER !== "cpu";
+     const sessionOpts = {
+       graphOptimizationLevel: "all",
+-      executionProviders: ["cpu"],
++      executionProviders: [useDirectML ? "dml" : "cpu"],
++      enableMemPattern: !useDirectML,
++      executionMode: "sequential",
+       logSeverityLevel: 3
+       // paddle2onnx 변환 잔여물 W 로그 폭주 억제
+     };
